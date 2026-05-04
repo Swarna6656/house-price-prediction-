@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>House Price Prediction</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background: #ffffff;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header{
+        text-align: center;
+        padding: 25px;
+        background: red;
+        color: white;
+    }
+
+    .header h1{
+        margin: 0;
+        font-size: 26px;
+    }
+
+    .header p{
+        margin: 5px 0 0;
+        font-size: 16px;
+    }
+
+    .container{
+        width: 85%;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgba(0,0,0,0.1);
+        border-top: 6px solid red;
+    }
+
+    h2{
+        text-align: center;
+        color: red;
+        margin-bottom: 25px;
+        font-size: 28px;
+    }
+
+    .form-grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    input{
+        width: 100%;
+        padding: 12px;
+        border: 2px solid red;
+        border-radius: 8px;
+        outline: none;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    input:focus{
+        border-color: darkred;
+        box-shadow: 0 0 10px rgba(255,0,0,0.3);
+    }
+
+    .btn-container{
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    button{
+        background: red;
+        color: white;
+        padding: 14px 50px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover{
+        background: darkred;
+    }
+
+    .result-box{
+        margin-top: 25px;
+        text-align: center;
+        font-size: 22px;
+        color: green;
+        font-weight: bold;
+    }
+
+    @media(max-width: 768px){
+        .form-grid{
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Swarnalatha</h1>
+    <p>Data Analyst Student | ViharaTech Organisation</p>
+</div>
+
+<div class="container">
+
+    <h2>House Price Prediction (ML Model)</h2>
+
+    <form action="/predict" method="post">
+
+        <div class="form-grid">
+
+            <input type="text" name="bedrooms" placeholder="Bedrooms" required>
+            <input type="text" name="bathrooms" placeholder="Bathrooms" required>
+            <input type="text" name="sqft_living" placeholder="Sqft Living" required>
+
+            <input type="text" name="sqft_lot" placeholder="Sqft Lot" required>
+            <input type="text" name="floors" placeholder="Floors" required>
+            <input type="text" name="waterfront" placeholder="Waterfront (0/1)" required>
+
+            <input type="text" name="view" placeholder="View (0-4)" required>
+            <input type="text" name="condition" placeholder="Condition (1-5)" required>
+            <input type="text" name="sqft_above" placeholder="Sqft Above" required>
+
+            <input type="text" name="sqft_basement" placeholder="Sqft Basement" required>
+            <input type="text" name="yr_built" placeholder="Year Built" required>
+            <input type="text" name="yr_renovated" placeholder="Year Renovated" required>
+
+            <input type="text" name="city" placeholder="City" required>
+
+        </div>
+
+        <div class="btn-container">
+            <button type="submit">Predict Price</button>
+        </div>
+
+    </form>
+
+    <div class="result-box">
+        {% if prediction_text %}
+            {{ prediction_text }}
+        {% else %}
+            Prediction will appear here...
+        {% endif %}
+    </div>
+
+</div>
+
+</body>
+</html>
