@@ -152,7 +152,7 @@ model.predict([[3,1.5,1340,7912,1.5,0,0,3,1340,0,1995,2005,0,0]])
 **Your Name**
 
 * GitHub: https://github.com/Swarna6656/house-price-prediction-.git
-* render link 
+
 ---
 
 ## ⭐ Support
